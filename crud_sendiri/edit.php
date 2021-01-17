@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <link rel="icon"  a href="img/icon.png" type="image/gif" sizes="16x16">
   <title>Crud With Oop</title>
 
   <!-- Custom fonts for this template-->

@@ -1,14 +1,24 @@
+
+<?php
+
+ include 'model.php';
+
+//memanggil dari modal method jumlah teman
+ $hmm= $database->jum_id();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+    <link rel="shortcut icon" href="img/icon.png" type="image/gif" sizes="16x16">
   <title>Crud With Oop</title>
 
   <!-- Custom fonts for this template-->
@@ -19,7 +29,6 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-
 
 <body id="page-top">
 
@@ -88,14 +97,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-
-<?php
-
- include 'model.php';
-
-//memanggil dari modal method jumlah teman
- $hmm= $database->jum_id();
-?>
 
           <!-- Content Row -->
 
