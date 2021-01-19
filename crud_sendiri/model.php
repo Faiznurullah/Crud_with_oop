@@ -40,7 +40,7 @@
   $umur = htmlspecialchars($_POST['umur']);
 
 //ambil data dari DB untuk di cocokan
-  $ambil_data = mysqli_query($this->conn, "select * from user where nama='$nama' and alamat='$alamat' and umur='$umur' ");
+  $ambil_data = mysqli_query($this->conn, "select * from usert where nama='$nama' and alamat='$alamat' and umur='$umur' ");
 //pengecekan banyak data
   $cek_jum = mysqli_num_rows($ambil_data);
 
@@ -63,7 +63,7 @@
   }else{
 
 //untuk menginsert ke database
- $insertt =  "INSERT INTO user VALUES (NULL,'$nama','$alamat','$umur')";
+ $insertt =  "INSERT INTO usert VALUES (NULL,'$nama','$alamat','$umur')";
 
 //kondisi insert
  if($sql= $this->conn->query($insertt)){
@@ -102,7 +102,7 @@
 
     $data = null;
 
-    $query = "SELECT * FROM user limit $start, $this->hal ";
+    $query = "SELECT * FROM usert limit $start, $this->hal ";
     if ($sql = $this->conn->query($query)) {
       while ($row = mysqli_fetch_assoc($sql)) {
         $data[] = $row;
@@ -115,7 +115,7 @@
 //method untuk menghapus data
   public function delete($id){
 
-    $query = "DELETE FROM user where id = '$id'";
+    $query = "DELETE FROM usert where id = '$id'";
     if ($sql = $this->conn->query($query)) {
       return true;
     }else{
@@ -129,7 +129,7 @@
 
     $data = null;
 
-    $query = "SELECT * FROM user WHERE id = '$id'";
+    $query = "SELECT * FROM usert WHERE id = '$id'";
     if ($sql = $this->conn->query($query)) {
       while ($row = $sql->fetch_assoc()) {
         $data = $row;
@@ -143,7 +143,7 @@ public function edit($id){
 
   $data = null;
 
-  $query = "SELECT * FROM user WHERE id = '$id'";
+  $query = "SELECT * FROM usert WHERE id = '$id'";
   if ($sql = $this->conn->query($query)) {
     while($row = $sql->fetch_assoc()){
       $data = $row;
@@ -158,7 +158,7 @@ public function edit($id){
 //method mengupdate isi database
 public function update($data){
 
-  $query = "UPDATE user SET nama='$data[nama]', alamat='$data[alamat]', umur='$data[umur]' WHERE id='$data[id] '";
+  $query = "UPDATE usert SET nama='$data[nama]', alamat='$data[alamat]', umur='$data[umur]' WHERE id='$data[id] '";
 
   if ($sql = $this->conn->query($query)) {
     return true;
@@ -171,7 +171,7 @@ public function update($data){
 //jumlah teman
 public function jum_id(){
 
-   $jum_id =mysqli_query($this->conn, "SELECT COUNT(*) as id from user");
+   $jum_id =mysqli_query($this->conn, "SELECT COUNT(*) as id from usert");
    $row = mysqli_fetch_array($jum_id);
    return $jum = $row['id'];
 
