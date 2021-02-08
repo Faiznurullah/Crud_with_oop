@@ -24,7 +24,7 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -97,7 +97,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-
           <!-- Content Row -->
 
           <div class="row">
@@ -111,6 +110,51 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+                  <?php
+               if(isset($_GET['hapus'])){
+               $pesan= addslashes($_GET['hapus']);
+
+               if($pesan=="sukses"){
+
+                 echo " <script>
+                 setTimeout(function (){
+
+                 swal({
+                    title: 'Hapus Teman Sukses',
+                    text: 'Jadilah Teman Yang Bijak Dan Bermanfaat',
+                    icon: 'success',
+                    button: 'Oke',
+                  });
+
+                 },10);
+
+                  </script>" ;
+
+
+
+               }else{
+
+                 echo " <script>
+                 setTimeout(function (){
+
+                 swal({
+                    title: 'Hapus Teman Gagal',
+                    text: 'Jadilah Teman Yang Bijak Dan Bermanfaat',
+                    icon: 'error',
+                    button: 'Oke',
+                  });
+
+                 },10);
+
+                  </script>" ;
+
+
+               }
+
+               }
+
+?>
+
   <b>Jumlah Teman: <?php echo $hmm." Orang"; ?></b>
 
                   <div class="col-md-12 col-sm-12 col-xs-12  mt-5">
@@ -141,6 +185,17 @@ foreach ($rows as $row ) {
 
 
 
+   //tanggal lahir
+   $tanggal = new DateTime($row['umur']);
+
+   // tanggal hari ini
+   $today = new DateTime('today');
+
+   // tahun
+   $y = $today->diff($tanggal)->y;
+
+  
+
  ?>
 
                     <tbody>
@@ -148,7 +203,7 @@ foreach ($rows as $row ) {
                         <th scope="row"><?php echo $row['id'] ?></th>
                         <td><?php echo $row['nama'] ?></td>
                         <td><?php echo $row['alamat'] ?></td>
-                        <td><?php echo $row['umur'] ?></td>
+                        <td><?php echo $y." Tahun" ?></td>
                         <td>&nbsp;<a href="edit.php?id=<?php echo $row['id']; ?>"><button type="button" class="btn btn-success">Edit</button></a> &nbsp; <a href="hapus.php?id=<?php echo $row['id']; ?>"><button type="button" class="btn btn-danger">Hapus</button></a> &nbsp; <a href="detail.php?id=<?php echo $row['id']; ?>"><button type="button" class="btn btn-info"> Detail </button></a></td>
 
                       </tr>

@@ -5,7 +5,7 @@ $id = $_REQUEST['id'];
 $delete = $hapus->delete($id);
 
 if($delete){
-  header('location: read.php');
+  header('location: read.php?hapus=sukses');
 }
 
 ?>

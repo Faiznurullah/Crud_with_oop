@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 
 
+
 <?php
 
  class database{
@@ -68,21 +69,36 @@
 //kondisi insert
  if($sql= $this->conn->query($insertt)){
 
+   echo " <script>
+   setTimeout(function (){
 
-                                 echo "<div class='col-md-10 col-sm-12 col-xs-12 ml-5'>";
-                                    echo "<div class='alert alert-primary mt-4 ml-5' role='alert'>";
-                                   echo "<p><center>Menambah Data Sukses</center></p>";
-                                    echo   "</div>";
-                                    echo "</div>";
+   swal({
+      title: 'Tambah Teman Sukses',
+      text: 'Jadilah Teman Yang Bijak Dan Bermanfaat',
+      icon: 'success',
+      button: 'Oke',
+    });
+
+  },10);
+
+    </script>" ;
 
 
  }else{
 
-                                 echo "<div class='col-md-10 col-sm-12 col-xs-12 ml-5'>";
-                                    echo "<div class='alert alert-danger mt-4 ml-5' role='alert'>";
-                                   echo "<p><center>Menambah Data Gagal</center></p>";
-                                    echo   "</div>";
-                                    echo "</div>";
+   echo " <script>
+   setTimeout(function (){
+
+   swal({
+      title: 'Tambah Teman Gagal',
+      text: 'Ups,Ada Kesalahan Sistem',
+      icon: 'error',
+      button: 'Oke',
+    });
+
+   },10);
+
+    </script>" ;
 
  }
 
@@ -105,10 +121,17 @@
     $query = "SELECT * FROM usert limit $start, $this->hal ";
     if ($sql = $this->conn->query($query)) {
       while ($row = mysqli_fetch_assoc($sql)) {
+
+          
+
         $data[] = $row;
       }
     }
-    return $data;
+      return $data;
+
+
+
+
   }
 
 

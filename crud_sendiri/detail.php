@@ -111,6 +111,17 @@ $model = new database();
                 $id = $_REQUEST['id'];
                 $row = $model->detail($id);
                 if(!empty($row)){
+                  //tanggal lahir
+                  $tanggal = new DateTime($row['umur']);
+
+                  // tanggal hari ini
+                  $today = new DateTime('today');
+
+                  // tahun
+                  $y = $today->diff($tanggal)->y;
+                  $m = $today->diff($tanggal)->m;
+                  $d = $today->diff($tanggal)->d;
+
 
 
                  ?>
@@ -118,7 +129,8 @@ $model = new database();
                 <div class="card-body">
                   <p>Name = <?php echo $row['nama']; ?></p>
                   <p>Alamat = <?php echo $row['alamat']; ?></p>
-                  <p>Umur/Usia = <?php echo $row['umur']; ?></p>
+                  <p>Tanggal Lahir = <?php echo $row['umur']; ?></p>
+                  <p>Umur/Usia = <?php echo $y." Tahun,".$m." Bulan,".$d." Hari."; ?></p>
                   <p><a href="read.php"><button type="button" class="btn btn-info">Kembali</button></a></p>
                 </div>
 

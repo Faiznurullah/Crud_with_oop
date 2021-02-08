@@ -14,7 +14,7 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -136,7 +136,7 @@
 
                     <div class="col-md-5 col-sm-12 col-xs-12">
                       <p><b>Umur:</b></p>
-                    <input class="form-control" type="number" name='umur' placeholder="Umur Anda..." value="<?php echo $row['umur']; ?>" required>
+                    <input class="form-control" type="date" name='umur' placeholder="Umur Anda..." value="<?php echo $row['umur']; ?>" required>
                     </div>
 
                   <div class="col-md-5 col-sm-12 col-xs-12 mt-4">
@@ -158,6 +158,7 @@ $ambil1 = new database;
 
 
 if(isset($_POST['ganti'])){
+
   $data['id'] = $_GET['id'];
   $data['nama'] = $_POST['nama'];
   $data['alamat'] = $_POST['alamat'];
@@ -168,18 +169,37 @@ if(isset($_POST['ganti'])){
 
  if($update){
 
-                                    echo "<div class='col-md-10 col-sm-12 col-xs-12 ml-5'>";
-                                       echo "<div class='alert alert-primary mt-4 ml-5' role='alert'>";
-                                      echo "<p><center>Berhasil Mengupdate</center></p>";
-                                       echo   "</div>";
-                                       echo "</div>";
+   echo " <script>
+   setTimeout(function (){
+
+   swal({
+      title: 'Edit Teman Sukses',
+      text: 'Jadilah Teman Yang Bijak Dan Bermanfaat',
+      icon: 'success',
+      button: 'Oke',
+    });
+
+  },10);
+
+    </script>" ;
+
+
  }else{
 
-                                    echo "<div class='col-md-10 col-sm-12 col-xs-12 ml-5'>";
-                                       echo "<div class='alert alert-danger mt-4 ml-5' role='alert'>";
-                                      echo "<p><center>Gagal Mengupdate</center></p>";
-                                       echo   "</div>";
-                                       echo "</div>";
+   echo " <script>
+   setTimeout(function (){
+
+   swal({
+      title: 'Edit Teman Gagal',
+      text: 'Jadilah Teman Yang Bijak Dan Bermanfaat',
+      icon: 'success',
+      button: 'Oke',
+    });
+
+  },10);
+
+    </script>" ;
+
  }
 
 }
