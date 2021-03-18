@@ -2,6 +2,7 @@
 include 'model.php';
 $insert = new database;
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -167,8 +168,20 @@ $insert = new database;
     </div>
     <!-- End of Content Wrapper -->
 
+
   </div>
   <!-- End of Page Wrapper -->
+
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span><p class="mb-1">Copyright &copy; <a href="https://github.com/Faiznurullah" style="text-decoration: none;"><b>Faiz Nurullah</b></a></p></span><br>
+      </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
+
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
